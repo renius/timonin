@@ -1,3 +1,11 @@
+- if user_signed_in?
+  %span
+    Здравствуйте, #{current_user.email}
+  = link_to 'Выйти', destroy_user_session_path, :method => :delete
+- else
+  = link_to 'Войти', new_user_session_path
+  или #{link_to 'Зарегистрироваться', new_user_registration_path}
+
 %h1 Listing posts
 .container
   %table
@@ -12,10 +20,10 @@
       %tr
         %td= post.title
         %td= post.body
-        %td= link_to 'Show', post
-        %td= link_to 'Edit', edit_post_path(post)
-        %td= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Просмотр', post
+        %td= link_to 'Редактировать', edit_post_path(post)
+        %td= link_to 'Уничтожить', post, :method => :delete, :data => { :confirm => 'Вы уверенны?' }
 
 %br
 
-= link_to 'New Post', new_post_path
+= link_to 'Новая запись', new_post_path

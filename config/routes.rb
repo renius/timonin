@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
+  get 'persons/profile', as: 'user_root'
+
   resources :posts
 
   # The priority is based upon order of creation: first created -> highest priority.
