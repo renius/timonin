@@ -17,4 +17,4 @@
 .ruby-gemset
 .ruby-version
 
-/public
+/public/*
