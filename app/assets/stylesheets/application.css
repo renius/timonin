@@ -14,3 +14,19 @@
  *= require_self
  *= require twitter/bootstrap
  */
+.index-post {
+	margin-top: 5px;
+	width: 50%;
+}
+
+.index-title {
+	background-color: #8EF3AD; 
+}
+
+.index-title h2 {
+	margin-left: 10px;
+}
+
+.index-body {
+	background-color: #D0F3DB;
+}
