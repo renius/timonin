@@ -1,0 +1,12 @@
+<%= @posts.each do |post| %>
+<div class="index-post">
+<div class="index-title">
+<h2><%= post.title %></h2>
+</div>
+<div class="index-body">
+<%= post.body %></br>
+</div>
+<%= link_to 'Редактировать', edit_post_path(post) %>
+<%= link_to 'Удалить', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+<% end %>
