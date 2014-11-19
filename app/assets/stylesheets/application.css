@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require twitter/bootstrap
+ *= require font-awesome
  */
 
 body {
@@ -20,3 +21,14 @@ body {
   padding-bottom: 40px;
 }
 
+.shared_links {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.shared_links div{
+  margin: 1px;
+  display: inline-block;
+  border-radius: 2px;
+  padding: 5px;
+}

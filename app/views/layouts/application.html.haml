@@ -1,0 +1,46 @@
+!!!
+%html
+  %head
+    %title Timonin
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => "#navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          = link_to root_path, :class => 'navbar-brand' do
+            .fa.fa-yelp>
+            Timonin
+        #navbar-collapse.navbar-collapse.collapse
+          %p.navbar-text.pull-right
+            - if user_signed_in?
+              Logged in as
+              = succeed "." do
+                %strong= current_user.email
+              = link_to 'Профиль', edit_user_registration_path, :class => 'navbar-link'
+              |
+              \#{link_to "Выйти", destroy_user_session_path, method: :delete, :class => 'navbar-link'}
+            - else
+              = link_to "Присоединиться", new_user_registration_path, :class => 'navbar-link'
+              |
+              \#{link_to "Войти", new_user_session_path, :class => 'navbar-link'}
+          %ul.nav.navbar-nav
+            %li
+              %a{:href => "#"} О проекте
+    .container
+      - if notice
+        %p.alert.alert-success= notice
+      - if alert
+        %p.alert.alert-danger= alert
+      = yield
+      %footer
+        .row.footer
+          .col-md-12.col-lg-12.col-xs-12.col-sm-12
+            \&copy | 2014
