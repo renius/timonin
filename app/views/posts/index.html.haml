@@ -1,7 +1,5 @@
-\- @posts.each do |post|
-\.index-title
-\%h2= post.title
-\.index-body
-\= post.body
-\= link_to 'Редактировать', edit_post_path(post)
-\= link_to 'Удалить', post, method: :delete, data: { confirm: 'Вы уверены?' }
+- @posts.each do |post|
+ %h2= post.title
+ = post.body
+ = link_to 'Редактировать', edit_post_path(post)
+ = link_to 'Удалить', post, method: :delete, data: { confirm: 'Вы уверены?' }
