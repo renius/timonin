@@ -1,0 +1,13 @@
+%h1 Редактировать
+= form_for @post, url: post_path(@post), method: :patch do |f|
+  %p
+    = f.label 'Заголовок'
+    %br
+      = f.text_field :title
+  %p
+    = f.label 'Текст'
+    %br
+      = f.text_area :body
+  %p
+    = f.submit
+= link_to 'На главную', root_path
