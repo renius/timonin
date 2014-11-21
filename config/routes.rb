@@ -5,9 +5,6 @@ Rails.application.routes.draw do
     get '/upload_images' => 'images#upload_images', as: :upload_images
     post '/upload' => 'images#upload', as: :upload
 
-  devise_for :users
-  get 'persons/profile', as: 'user_root'
-
   resources :posts
 
   # The priority is based upon order of creation: first created -> highest priority.
