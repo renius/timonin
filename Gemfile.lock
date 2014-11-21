@@ -28,11 +28,6 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
-    aws-sdk (1.58.0)
-      aws-sdk-v1 (= 1.58.0)
-    aws-sdk-v1 (1.58.0)
-      json (~> 1.4)
-      nokogiri (>= 1.4.4)
     bcrypt (3.1.9)
     builder (3.2.2)
     carrierwave (0.10.0)
@@ -164,10 +159,6 @@ GEM
     rake (10.3.2)
     rdoc (4.1.2)
       json (~> 1.4)
-    redactor-rails (0.4.5)
-      devise
-      mime-types
-      orm_adapter
     redis (3.1.0)
     redis-namespace (1.5.1)
       redis (~> 3.0, >= 3.0.4)
@@ -225,7 +216,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk
   carrierwave
   coffee-rails (~> 4.0.0)
   devise
@@ -239,7 +229,6 @@ DEPENDENCIES
   pg
   plupload-rails
   rails (= 4.1.4)
-  redactor-rails
   russian
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
