@@ -20,17 +20,7 @@
             Timonin
         #navbar-collapse.navbar-collapse.collapse
           %p.navbar-text.pull-right
-            - if user_signed_in?
-              Logged in as
-              = succeed "." do
-                %strong= current_user.email
-              = link_to 'Профиль', edit_user_registration_path, :class => 'navbar-link'
-              |
-              \#{link_to "Выйти", destroy_user_session_path, method: :delete, :class => 'navbar-link'}
-            - else
-              = link_to "Присоединиться", new_user_registration_path, :class => 'navbar-link'
-              |
-              \#{link_to "Войти", new_user_session_path, :class => 'navbar-link'}
+            Menu
           %ul.nav.navbar-nav
             %li
               %a{:href => "#"} О проекте
