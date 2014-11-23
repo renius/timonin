@@ -12,10 +12,15 @@ gem 'less-rails-bootstrap'
 gem 'haml-rails'
 gem 'carrierwave'
 gem 'jquery-rails'
-gem 'russian'
-gem 'aws-sdk'
-gem 'fog'
-gem 'devise'
+gem 'russian' #localization
+#gem 'aws-sdk' #
+gem 'fog' #cloud upload
+#gem 'devise' #auth
+gem 'plupload-rails'
+gem 'font-awesome-rails' #font-awesome
+#gem 'redactor-rails' #wysiwyg editor for posts
+gem 'mini_magick' #for resize images
+gem 'sidekiq'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
