@@ -15,37 +15,3 @@
  *= require twitter/bootstrap
  *= require font-awesome
  */
-
-body {
-	padding-top: 60px;
-	padding-bottom: 40px;
-}
-
-.shared_links {
-	padding-top: 10px;
-	text-align: center;
-}
-
-.shared_links div{
-	margin: 1px;
-	display: inline-block;
-	border-radius: 2px;
-	padding: 5px;
-}
-
-.col-md-6 textarea {
-	resize: none;
-}
-
-.container h2 {
-	margin-left: 20px;
-}
-
-#post_title {
-	margin-top: 5px;
-}
-
-#post_body {
-	margin-top: 5px;
-	margin-bottom: 5px;
-}

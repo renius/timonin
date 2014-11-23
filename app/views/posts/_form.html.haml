@@ -1,7 +1,6 @@
-.col-md-6
-  = form_for @post do |f|
-    = f.file_field :photo
-    = f.text_field :title, class: "form-control", placeholder: "Заголовок"
-    = f.text_area :body, rows: 12, class: "form-control", placeholder: "Сообщение"
-    .pull-right
-      = f.submit "Отправить", class: "btn btn-success"
+= form_for @post do |f|
+  = f.file_field :photo
+  = f.text_field :title, class: "form-control", placeholder: "Заголовок"
+  = f.text_area :body, rows: 12, class: "form-control", placeholder: "Сообщение"
+  .pull-right
+    = f.submit "Отправить", class: "btn btn-success"
