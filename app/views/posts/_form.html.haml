@@ -9,10 +9,14 @@
     .field
       = f.label :title
       = f.text_field :title
-      = f.label :photo, 'Choose images'
     .field
       = f.label :body
       = f.text_area :body
-      = f.file_field :photo
+
+    = f.fields_for :images do |p|
+      .field
+        = p.label :photo
+      %br
+        = p.file_field :photo, :multiple => true, name: "images[photo][]"
     .actions
       = f.submit 'Save'

@@ -1,4 +1,4 @@
 class Post < ActiveRecord::Base
   validates :title, :body, presence: true
-  mount_uploader :photo, PhotoUploader
+  has_many :images
 end

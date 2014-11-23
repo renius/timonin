@@ -4,6 +4,7 @@
   %tr
     %th Title
     %th Image
+    %th ID
     %th
     %th
     %th
@@ -12,6 +13,7 @@
     %tr
       %td= image.title
       %td= image.image
+      %td= image.post_id
       %td= link_to 'Show', image
       %td= link_to 'Edit', edit_image_path(image)
       %td= link_to 'Destroy', image, :method => :delete, :data => { :confirm => 'Are you sure?' }
@@ -19,4 +21,4 @@
 %br
 
 = link_to 'New Image', new_image_path
-= link_to 'New Images (multi upload)', upload_images_path
+

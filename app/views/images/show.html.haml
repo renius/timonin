@@ -4,6 +4,9 @@
   %b Название:
   = @image.title
 %p
+  %b ID:
+  = @image.post_id
+%p
   %b Изображение:
   = image_tag @image.image_url() if @image.image?
 
