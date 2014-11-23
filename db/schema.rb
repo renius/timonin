@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20141116080027) do
   create_table "images", force: true do |t|
     t.string   "title"
     t.string   "image"
+    t.string   "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,5 +31,5 @@ ActiveRecord::Schema.define(version: 20141116080027) do
     t.datetime "updated_at"
     t.string   "photo"
   end
-  
+
 end

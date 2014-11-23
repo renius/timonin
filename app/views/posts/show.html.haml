@@ -8,8 +8,9 @@
     = @post.body
   %p
     %b Photo:
-    =image_tag @post.photo_url() if @post.photo?
-    = @post.photo_url.to_s
+    - @post.images.each do |p|
+      = image_tag p.image_url
+      = link_to "Edit Attachment", edit_image_path(p)
 
 = link_to 'Edit', edit_post_path(@post)
 \|

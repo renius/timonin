@@ -8,11 +8,13 @@ class PostsController < ApplicationController
   end
 
   def show
+    @images = @post.images.all
     respond_with(@post)
   end
 
   def new
     @post = Post.new
+    @image = @post.images.build
     respond_with(@post)
   end
 
@@ -21,8 +23,16 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.save
-    respond_with(@post)
+    respond_to do |format|
+      if @post.save
+        params[:images]['photo'].each do |a|
+          @image = @post.images.create!(:image => a, :post_id => @post.id)
+        end
+        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+      else
+        format.html { render action: 'new' }
+      end
+    end
   end
 
   def update
@@ -41,6 +51,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :body, :photo)
+      params.require(:post).permit(:title, :body, images_attributes: [:id, :post_id, :image])
     end
 end
