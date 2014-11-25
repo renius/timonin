@@ -1,1 +1,17 @@
-= link_to "Добавить", new_post_path
+.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => "#navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to root_path, :class => 'navbar-brand' do
+        .fa.fa-yelp>
+        Timonin
+    #navbar-collapse.navbar-collapse.collapse
+      %p.navbar-text.pull-right
+        Menu
+      %ul.nav.navbar-nav
+        %li
+          %a{:href => "#"} О проекте
