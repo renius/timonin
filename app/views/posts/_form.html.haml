@@ -1,18 +1,6 @@
-.container
-  = form_for @post, html: {multipart: :true}  do |f|
-    - if @post.errors.any?
-      #error_explanation
-        %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
-        %ul
-          - @post.errors.full_messages.each do |msg|
-            %li= msg        
-    .field
-      = f.label :title
-      = f.text_field :title
-      = f.label :photo, 'Choose images'
-    .field
-      = f.label :body
-      = f.text_area :body
-      = f.file_field :photo
-    .actions
-      = f.submit 'Save'
+= form_for @post do |f|
+  = f.file_field :photo
+  = f.text_field :title, class: "form-control", placeholder: "Заголовок"
+  = f.text_area :body, rows: 12, class: "form-control", placeholder: "Сообщение"
+  .pull-right
+    = f.submit "Отправить", class: "btn btn-success"
