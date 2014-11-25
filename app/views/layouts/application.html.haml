@@ -7,30 +7,11 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    .navbar.navbar-inverse.navbar-fixed-top
-      .container
-        .navbar-header
-          %button.navbar-toggle{"data-target" => "#navbar-collapse", "data-toggle" => "collapse", :type => "button"}
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          = link_to root_path, :class => 'navbar-brand' do
-            .fa.fa-yelp>
-            Timonin
-        #navbar-collapse.navbar-collapse.collapse
-          %p.navbar-text.pull-right
-            Menu
-          %ul.nav.navbar-nav
-            %li
-              %a{:href => "#"} О проекте
-    .container
-      - if notice
-        %p.alert.alert-success= notice
-      - if alert
-        %p.alert.alert-danger= alert
-      = yield
-      %footer
-        .row.footer
-          .col-md-12.col-lg-12.col-xs-12.col-sm-12
-            \&copy | 2014
+  = render 'layouts/header'
+  .container
+    - if notice
+      %p.alert.alert-success= notice
+    - if alert
+      %p.alert.alert-danger= alert
+    = yield
+    = render 'layouts/footer'
