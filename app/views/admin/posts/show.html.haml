@@ -2,6 +2,9 @@
 = @post.body
 =image_tag @post.photo_url() if @post.photo?
 = @post.photo_url.to_s
+.post-button
+  = link_to 'Редактировать', edit_post_path(@post), class: "btn btn-xs btn-primary"
+  = link_to 'Удалить', [:admin, @post], method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-xs btn-danger"
 %h3 Комментарии
 - @post.comments.each do |comment|
   %p= comment.name
