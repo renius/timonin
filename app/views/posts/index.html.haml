@@ -1,6 +1,3 @@
 - @posts.each do |post|
   %h2= post.title
   = post.body
-  .post-button
-  = link_to 'Редактировать', edit_post_path(post), class: "btn btn-xs btn-primary"
-  = link_to 'Удалить', post, method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-xs btn-danger"

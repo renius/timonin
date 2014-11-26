@@ -1,19 +1,15 @@
-class PostsController < ApplicationController
-  before_action :set_post, only: [:show]
-  respond_to :html
+class Admin::PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
     @posts = Post.all
-    respond_with(@posts)
   end
 
   def show
-    respond_with(@post)
   end
 
   def new
     @post = Post.new
-    respond_with(@post)
   end
 
   def edit
@@ -21,18 +17,19 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.save
-    respond_with(@post)
+    if @post.save
+      redirect_to admin_posts_path
+    end
   end
 
   def update
     @post.update(post_params)
-    respond_with(@post)
+    redirect_to admin_post_path
   end
 
   def destroy
     @post.destroy
-    respond_with(@post)
+    redirect_to admin_posts_path
   end
 
   private
