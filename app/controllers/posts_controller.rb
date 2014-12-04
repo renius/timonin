@@ -3,11 +3,12 @@ class PostsController < ApplicationController
   respond_to :html
 
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).per(3)
     respond_with(@posts)
   end
 
   def show
+    @comments = @post.comments.page(params[:comments_page]).per(3)
     respond_with(@post)
   end
 

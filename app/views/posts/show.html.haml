@@ -3,7 +3,8 @@
 =image_tag @post.photo_url() if @post.photo?
 = @post.photo_url.to_s
 %h3 Комментарии
-- @post.comments.each do |comment|
+= paginate @comments, param_name: :comments_page
+- @comments.each do |comment|
   %p= comment.name
   %p= comment.body
 %h3 Оставить комментарий
