@@ -12,10 +12,14 @@ gem 'less-rails-bootstrap'
 gem 'haml-rails'
 gem 'carrierwave'
 gem 'jquery-rails'
+gem 'rspec-rails'
+gem 'faker', github: 'Makapoxa/faker', ref: '2c52d5'
+gem "factory_girl_rails", "~> 4.0"
 gem 'russian' #localization
 #gem 'aws-sdk' #
 gem 'fog' #cloud upload
 gem 'devise' #auth
+gem 'cancancan'
 gem 'plupload-rails'
 gem 'font-awesome-rails' #font-awesome
 #gem 'redactor-rails' #wysiwyg editor for posts
