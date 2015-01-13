@@ -1,10 +1,11 @@
 require 'rails_helper'
 
-describe 'posts/show' do
+describe 'admin/posts/show' do
   before(:each) do
+    sign_in_as_a_user
     @post = assign(:post, create(:post))
     @comments = assign(:comment, Kaminari.paginate_array([
-      create(:comment, post: @post)
+      FactoryGirl.create(:comment, post: @post)
     ]).page(1))
   end
 
