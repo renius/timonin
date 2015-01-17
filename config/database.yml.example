@@ -1,11 +1,10 @@
 defaults: &defaults
   pool: 5
-  adapter: postgresql
   timeout: 5000
   host: localhost
   <<: *<%= ENV['DB'] || "postgresql" %>
 
-  postgresql: &postgresql
+postgresql: &postgresql
   adapter: postgresql
   username: postgres
   password:
