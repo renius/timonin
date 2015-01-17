@@ -9,4 +9,4 @@ script:
   - bundle exec rake
 before_script:
   - cp config/database.example.yml config/database.yml
-  - psql -c 'create database strano_test' -U postgres
+  - psql -c 'create database timonin_test' -U postgres
