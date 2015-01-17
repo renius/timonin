@@ -1,9 +1,27 @@
 defaults: &defaults
   pool: 5
   timeout: 5000
+  encoding: unicode
+  adapter: postgresql
   host: localhost
+
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: timonin_development
+  pool: 5
+  username: postgres
 
 test:
   adapter: postgresql
+  encoding: utf8
   database: timonin_test
+  pool: 5
+  username: postgres
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: timonin_production
+  pool: 5
   username: postgres
