@@ -2,20 +2,8 @@ defaults: &defaults
   pool: 5
   timeout: 5000
   host: localhost
-  <<: *<%= ENV['DB'] || "postgresql" %>
-
-postgresql: &postgresql
-  adapter: postgresql
-  username: postgres
-  password:
-  database: timonin_<%= Rails.env %>
-  min_messages: ERROR
-
-development:
-  <<: *defaults
 
 test:
-  <<: *defaults
-
-production:
-  <<: *defaults
+  adapter: postgresql
+  database: timonin_test
+  username: postgres
