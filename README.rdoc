@@ -1,4 +1,4 @@
 == README
 
 {<img src="https://codeclimate.com/github/we138/timonin/badges/gpa.svg" />}[https://codeclimate.com/github/we138/timonin]
-
+{<img src="https://travis-ci.org/we138/timonin.svg?branch=develop" alt="Build Status" />}[https://travis-ci.org/we138/timonin]
