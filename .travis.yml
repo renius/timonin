@@ -1,8 +1,8 @@
 language: ruby
 rvm:
-  - "2.0.0"
-  - "2.0.0"
-  - "2.0.0"
+  - "2.0.с"
+  - "2.1.x"
+  - "2.2.x"
   - jruby-18mode # JRuby in 1.8 mode
   - jruby-19mode # JRuby in 1.9 mode
   - rbx
