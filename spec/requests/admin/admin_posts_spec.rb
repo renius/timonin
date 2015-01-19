@@ -7,5 +7,11 @@ RSpec.describe "Admin::Posts", :type => :request do
       get admin_posts_path
       expect(response).to have_http_status(200)
     end
+
+    it "don't works!" do
+      sign_in_as_a_user
+      get admin_posts_path
+      expect(response).to redirect_to(root_url)
+    end
   end
 end
