@@ -11,6 +11,7 @@ class Admin::PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @photos = @post.photos.build
   end
 
   def edit
@@ -19,6 +20,9 @@ class Admin::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
+      params[:photos]['image'].each do |photo|
+          @post.photos.create!(image: photo, photoable_id: @post.id)
+      end
       redirect_to admin_posts_path
     end
   end
@@ -39,6 +43,6 @@ class Admin::PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :body, :photo)
+      params.require(:post).permit(:title, :body)
     end
 end

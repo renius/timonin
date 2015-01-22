@@ -10,7 +10,6 @@ gem 'therubyracer',  platforms: :ruby
 gem "kaminari"
 gem 'less-rails-bootstrap'
 gem 'haml-rails'
-gem 'carrierwave'
 gem 'jquery-rails'
 gem 'rspec-rails'
 gem 'capybara'
@@ -21,6 +20,7 @@ gem 'russian' #localization
 gem 'fog' #cloud upload
 gem 'devise' #auth
 gem 'cancancan'
+gem 'carrierwave'
 gem 'plupload-rails'
 gem 'font-awesome-rails' #font-awesome
 #gem 'redactor-rails' #wysiwyg editor for posts
