@@ -35,30 +35,17 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :test do
+  gem 'codeclimate-test-reporter'
   gem 'pry'
   gem 'pry-remote'
   gem 'pry-rails'
   gem 'pry-stack_explorer'
   gem 'pry-byebug'
 end
+
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development do
   gem 'spring'
   gem 'guard-rspec'
   gem 'spring-commands-rspec'
 end
-
-
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
