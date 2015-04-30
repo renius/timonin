@@ -8,3 +8,6 @@ script:
 before_script:
   - cp config/database.yml.example config/database.yml
   - psql -c 'create database timonin_test' -U postgres
+addons:
+   code_climate:
+     repo_token: 05147f815cab7e60fa3ef1fce48dedb1d196948162e09add8401933c03cbb197
