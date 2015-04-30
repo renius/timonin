@@ -20,4 +20,4 @@
 /public/uploads/*
 /public/tmp/*
 /config/database.yml
-config/datavae.yml
+config/database.yml
