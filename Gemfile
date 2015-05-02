@@ -52,4 +52,8 @@ group :development do
   gem 'spring'
   gem 'guard-rspec'
   gem 'spring-commands-rspec'
+  gem 'pry'
+  gem 'pry-remote'
+  gem 'pry-rails'
+  gem 'pry-byebug'
 end

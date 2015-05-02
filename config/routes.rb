@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root 'welcome#index'
 
+  resources :downloaders
+  resources :pictures
   get 'about' => 'welcome#about', as: :about
 
   resources :images
