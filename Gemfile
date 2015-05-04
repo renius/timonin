@@ -1,14 +1,12 @@
 source 'https://rubygems.org'
 
-
-
-gem 'rails', '4.1.4'
+gem 'rails', '4.2.1'
 gem 'pg'
-gem 'sass-rails', '~> 4.0.3'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'therubyracer',  platforms: :ruby
-gem "kaminari"
+gem 'kaminari'
 gem 'less-rails-bootstrap'
 gem 'haml-rails'
 gem 'carrierwave'
@@ -16,21 +14,25 @@ gem 'jquery-rails'
 gem 'rspec-rails'
 gem 'capybara'
 gem 'faker', github: 'Makapoxa/faker', ref: '2c52d5'
-gem "factory_girl_rails", "~> 4.0"
-gem 'russian' #localization
-#gem 'aws-sdk' #
-gem 'fog' #cloud upload
-gem 'devise' #auth
+gem 'factory_girl_rails'
+gem 'russian'
+
+# gem 'aws-sdk' #
+
+gem 'fog' # cloud upload
+gem 'devise' # auth
 gem 'cancancan'
 gem 'plupload-rails'
-gem 'font-awesome-rails' #font-awesome
-#gem 'redactor-rails' #wysiwyg editor for posts
-gem 'mini_magick' #for resize images
+gem 'font-awesome-rails' # font-awesome
+
+# gem 'redactor-rails' #wysiwyg editor for posts
+
+gem 'mini_magick' # for resize images
 gem 'sidekiq'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
@@ -47,7 +49,8 @@ group :test do
   gem 'pry-byebug'
 end
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+# Spring speeds up development by keeping your application running
+# in the background. Read more: https://github.com/rails/spring
 group :development do
   gem 'spring'
   gem 'guard-rspec'
