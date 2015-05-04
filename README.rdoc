@@ -1,5 +1,6 @@
 == README
 
+{<img src="https://gemnasium.com/renius/timonin.svg" alt="Dependency Status" />}[https://gemnasium.com/renius/timonin]
 {<img src="https://codeclimate.com/github/renius/timonin/badges/coverage.svg" />}[https://codeclimate.com/github/renius/timonin]
 {<img src="https://codeclimate.com/github/renius/timonin/badges/gpa.svg" />}[https://codeclimate.com/github/renius/timonin]
 {<img src="https://travis-ci.org/renius/timonin.svg?branch=develop" alt="Build Status" />}[https://travis-ci.org/renius/timonin]
