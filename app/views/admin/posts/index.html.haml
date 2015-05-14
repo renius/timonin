@@ -1,4 +1,5 @@
-
+.post-button
+=link_to 'Написать', new_admin_post_path, class: "btn btn-xs btn-primary"
 - @posts.each do |post|
   %h2= post.title
   = post.body
