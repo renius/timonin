@@ -11,13 +11,13 @@
         Timonin
     #navbar-collapse.navbar-collapse.collapse
       %p.navbar-text.pull-right
+        = link_to "Администрирование", admin_page_path if current_user.try(:admin?)
         - if user_signed_in?
           = current_user.email
           = link_to "Выйти", destroy_user_session_path, :method => :delete
         - else
           = link_to "Войти", new_user_session_path
           = link_to "Регистрация", new_user_registration_path
-      
       %ul.nav.navbar-nav
         %li
           %a{:href => "about"} О проекте

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'about' => 'welcome#about', as: :about
+  get 'admin_page' => 'welcome#admin_page', as: :admin_page
 
   resources :images
     get '/upload_images' => 'images#upload_images', as: :upload_images

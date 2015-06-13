@@ -3,7 +3,14 @@
     %h1
       Timonin
     %small Небольшой сайт
+    .post-button
+    =link_to 'Написать', new_admin_post_path, class: "btn btn-xs btn-primary" if current_user.try(:admin?)
   .row
-    = link_to "Main content", images_path
+    - @posts.each do |post|
+      %h2= link_to post.title, post_path(post)
+      = post.body
+    %br
+    = paginate @posts
   .row
-    = link_to "Secondary content", posts_path
+    %h1
+      Reserved for photoes
