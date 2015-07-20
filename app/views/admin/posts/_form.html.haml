@@ -1,6 +1,8 @@
-= form_for [:admin, @post] do |f|
+= form_for([:admin, @post], html: { class: 'form-horizontal'}) do |f|
   = f.file_field :photo
-  = f.text_field :title, class: "form-control", placeholder: "Заголовок"
-  = f.text_area :body, rows: 12, class: "form-control", placeholder: "Сообщение"
-  .pull-right
-    = f.submit "Отправить", class: "btn btn-success"
+  %br
+  = f.text_field :title, class: 'form-control', placeholder: 'Заголовок'
+  %br
+  = f.text_area :body, rows: 12, class: 'form-control', placeholder: 'Сообщение'
+  %br
+    = f.submit 'Отправить', class: 'btn btn-success'

@@ -9,42 +9,40 @@ describe Admin::PostsController do
   end
 
   let(:valid_attributes) { attributes_for(:post) }
+  let(:article) { create(:post) }
+  let(:subject) { assigns(:post) }
 
   describe 'GET' do
-
-    let(:post) { create :post }
-
     describe 'GET index' do
       it 'assigns all admin_posts as @admin_posts' do
         get :index
-        expect(assigns(:posts)).to eq([post])
+        expect(assigns(:posts)).to eq([article])
       end
     end
 
     describe 'GET show' do
       it 'assigns the requested admin_post as @admin_post' do
-        get :show, id: post.to_param
-        expect(assigns(:post)).to eq(post)
+        get :show, id: article.to_param
+        is_expected.to eq(article)
       end
     end
 
     describe 'GET new' do
       it 'assigns a new admin_post as @admin_post' do
         get :new
-        expect(assigns(:post)).to be_a_new(Post)
+        is_expected.to be_a_new(Post)
       end
     end
 
     describe 'GET edit' do
       it 'assigns the requested admin_post as @admin_post' do
-        get :edit, id: post.to_param
-        expect(assigns(:post)).to eq(post)
+        get :edit, id: article.to_param
+        is_expected.to eq(article)
       end
     end
   end
 
   describe 'POST create' do
-
     describe 'with valid params' do
       it 'creates a new Admin::Post' do
         expect {
@@ -60,23 +58,20 @@ describe Admin::PostsController do
   end
 
   describe 'PUT update' do
-
-    let(:post) { create :post }
-
     describe 'with valid params' do
-
       it 'updates the requested admin_post' do
-        put :update, id: post.to_param, post: valid_attributes
-        post.reload
+        put :update, id: article.to_param, post: { title: 'Updated' }
+        article.reload
+        expect(article['title']).to eq('Updated')
       end
 
       it 'assigns the requested admin_post as @admin_post' do
-        put :update, id: post.to_param, post: valid_attributes
-        expect(assigns(:post)).to eq(post)
+        put :update, id: article.to_param, post: valid_attributes
+        is_expected.to eq(article)
       end
 
       it 'redirects to the admin_post' do
-        put :update, id: post.to_param, post: valid_attributes
+        put :update, id: article.to_param, post: valid_attributes
         expect(response).to redirect_to admin_post_path
       end
     end
@@ -84,16 +79,16 @@ describe Admin::PostsController do
 
   describe 'DELETE destroy' do
 
+    let!(:article) { create(:post) }
+
     it 'destroys the requested admin_post' do
-      post = create :post
       expect {
-        delete :destroy, id: post.to_param
+        delete :destroy, id: article.to_param
       }.to change(Post, :count).by(-1)
     end
 
     it 'redirects to the admin_posts list' do
-      post = create :post
-      delete :destroy, id: post.to_param
+      delete :destroy, id: article.to_param
       expect(response).to redirect_to(admin_posts_url)
     end
   end

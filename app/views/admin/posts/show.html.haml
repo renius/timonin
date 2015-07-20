@@ -2,16 +2,21 @@
 = @post.body
 =image_tag @post.photo_url() if @post.photo?
 = @post.photo_url.to_s
+
 .post-button
-  = link_to 'Редактировать', edit_post_path(@post), class: "btn btn-xs btn-primary"
-  = link_to 'Удалить', [:admin, @post], method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-xs btn-danger"
+  = link_to 'Редактировать', edit_admin_post_path(@post), class: 'btn btn-xs btn-primary'
+  = link_to 'Удалить', [:admin, @post], method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-xs btn-danger'
+
 %h3 Комментарии
 - @post.comments.each do |comment|
-  %p= comment.name
-  %p= comment.body
+  %p= "Автор: #{comment.name}"
+  %p= "Текст: #{comment.body}"
+  %hr
+
 %h3 Оставить комментарий
-= form_for ([@post, @post.comments.build]) do |f|
-  = f.text_field :name, class: "form-control", placeholder: "Ваше имя"
-  = f.text_area :body, class: "form-control", placeholder: "Комментарий"
-  .pull-right
-    = f.submit "Отправить", class: "btn btn-success"
+= form_for([@post, @post.comments.build], html: { class: 'form-horizontal' }) do |f|
+  = f.text_field :name, class: 'form-control', placeholder: 'Ваше имя'
+  %br
+  = f.text_area :body, class: 'form-control', placeholder: 'Комментарий'
+  %br
+  = f.submit 'Отправить', class: 'btn btn-success'

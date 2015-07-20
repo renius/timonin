@@ -2,36 +2,22 @@ require 'rails_helper'
 require 'cancan/matchers'
 
 describe Ability do
+  let(:subject) { Ability.new(user) }
+  let(:comment) { Comment.new(user: user) }
+
   describe 'for regular user' do
-    let(:user) { FactoryGirl.create(:user) }
-
-      it 'allows to crud comments' do
-        ability = Ability.new(user)
-        comment = Comment.new(user: user)
-        expect(ability).to be_able_to(:manage, comment)
-      end
-
-      it 'can not destroy user' do
-        ability = Ability.new(user)
-        comment = Comment.new(user: user)
-        expect(ability).to_not be_able_to(:destroy, user)
-      end
-
+    let(:user) { create(:user) }
+      it { is_expected.to be_able_to(:manage, comment) }
+      it { is_expected.to_not be_able_to(:destroy, user) }
       it 'can not manage other user comments' do
         second_user = User.new
-        ability = Ability.new(user)
         comment = Comment.new(user: second_user)
-        expect(ability).to_not be_able_to(:manage, comment)
+        is_expected.to_not be_able_to(:manage, comment)
       end
   end
 
   describe 'for admin' do
-    let(:user) { FactoryGirl.create(:user, role: 'admin') }
-
-      it 'to manage all' do
-        ability = Ability.new(user)
-        comment = Comment.new(user: user)
-        expect(ability).to be_able_to(:manage, :all)
-      end
+    let(:user) { create(:user, role: 'admin') }
+      it { is_expected.to be_able_to(:manage, :all) }
   end
 end

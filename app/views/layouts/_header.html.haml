@@ -1,24 +1,24 @@
 .navbar.navbar-inverse.navbar-fixed-top
   .container
     .navbar-header
-      %button.navbar-toggle{"data-target" => "#navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+      %button.navbar-toggle{data: { target: '#navbar-collapse', toggle: 'collapse'}, type: 'button'}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to root_path, :class => 'navbar-brand' do
+      = link_to root_path, class: 'navbar-brand' do
         .fa.fa-yelp>
         Timonin
     #navbar-collapse.navbar-collapse.collapse
       %p.navbar-text.pull-right
         - if user_signed_in?
           = current_user.email
-          = link_to "Выйти", destroy_user_session_path, :method => :delete
+          = link_to 'Выйти', destroy_user_session_path, method: :delete
         - else
-          = link_to "Войти", new_user_session_path
-          = link_to "Регистрация", new_user_registration_path
-      
+          = link_to 'Войти', new_user_session_path
+          = link_to 'Регистрация', new_user_registration_path
+
       %ul.nav.navbar-nav
         %li
-          %a{:href => "about"} О проекте
-          
+          =link_to 'О проекте', about_path
+

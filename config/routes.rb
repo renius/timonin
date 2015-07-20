@@ -10,11 +10,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :posts do
-      resources :comments
+      resources :comments, only: [:create]
     end
   end
 
-  resources :posts do
-    resources :comments
+  resources :posts, only: [:index, :show] do
+    resources :comments, only: [:create]
   end
 end
