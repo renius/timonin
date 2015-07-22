@@ -2,13 +2,16 @@
 %html
   %head
     %title Timonin
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{content: 'width=device-width, initial-scale=1.0', name: 'viewport'}/
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 %body
   = render 'layouts/header'
   .container
-    = yield
-= render 'layouts/footer'
-
+    %div
+      - if flash[:notice]
+        .alert.alert-success= flash[:notice]
+      - if flash[:alert]
+        .alert.alert-danger= flash[:alert]
+      = yield
