@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
   def show
     @comments = @post.comments.page(params[:comments_page]).per(3)
+    @post_photos = @post.photos
     respond_with(@post)
   end
 

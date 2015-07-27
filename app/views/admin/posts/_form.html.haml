@@ -1,8 +1,12 @@
-= form_for([:admin, @post], html: { class: 'form-horizontal'}) do |f|
-  = f.file_field :photo
+= form_for([:admin, @post], html: { class: 'form-horizontal' }) do |f|
+  = f.fields_for :photos, Photo.new do |p|
+    = render 'post_photos' if @post_photos # Выводим фотографии в action #edit
+    %br
+    = p.file_field :photo, multiple: true, name: 'post[photos_attributes][][photo]'
+
   %br
   = f.text_field :title, class: 'form-control', placeholder: 'Заголовок'
   %br
   = f.text_area :body, rows: 12, class: 'form-control', placeholder: 'Сообщение'
   %br
-    = f.submit 'Отправить', class: 'btn btn-success'
+  = f.submit 'Отправить', class: 'btn btn-success'

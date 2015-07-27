@@ -44,10 +44,20 @@ describe Admin::PostsController do
 
   describe 'POST create' do
     describe 'with valid params' do
-      it 'creates a new Admin::Post' do
-        expect {
-          post :create, post: valid_attributes
-        }.to change(Post, :count).by(1)
+      let(:file1) do
+        Rack::Test::UploadedFile.new('spec/support/1.jpg', 'image/jpeg')
+      end
+
+      it 'creates a new Admin::Post with photo' do
+        params = {
+          post: {
+            title: 'NewPostTitle',
+            body: 'NewPostBody',
+            photos_attributes: [{ photo: file1 }, { photo: file1 }]
+          }
+        }
+        expect { post :create, params }.to change(Post, :count).by(1)
+        expect(assigns(:post).photos).to eq(Post.last.photos)
       end
 
       it 'redirects to the created admin_post' do

@@ -1,0 +1,9 @@
+- @post_photos.each_slice(3) do |photo_post|
+  .row
+    - photo_post.each do |photo|
+      .col-sm-6.col-md-4
+        .thumbnail
+          = image_tag photo.photo_url(:thumb)
+          .caption
+            = link_to 'Delete', admin_post_path(@post.id,
+              post: { photos_attributes: { id: photo.id, _destroy: true } }), method: :put

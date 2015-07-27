@@ -1,7 +1,12 @@
 %h2= @post.title
-= @post.body
-=image_tag @post.photo_url() if @post.photo?
-= @post.photo_url.to_s
+%p= "Text: #{@post.body}"
+- if @post_photos
+  - @post_photos.each_slice(3) do |photos|
+    .row
+      - photos.each do |photo|
+        .col-sm-6.col-md-4
+          .thumbnail
+            = image_tag photo.photo_url(:thumb)
 
 .post-button
   = link_to 'Редактировать', edit_admin_post_path(@post), class: 'btn btn-xs btn-primary'
