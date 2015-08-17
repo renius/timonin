@@ -1,6 +1,8 @@
 %h2= @post.title
-%p=image_tag @post.photo_url(:thumb).to_s if @post.photo?
-%p= @post.body
+= @post.body
+- if @post_photos
+  - @post_photos.each do |photos|
+    = image_tag photos.photo_url(:thumb)
 
 %h3 Комментарии
 = paginate @comments, param_name: :comments_page

@@ -1,6 +1,7 @@
 class Admin::PostsController < ApplicationController
   load_and_authorize_resource
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :find_post_photos, only: [:edit, :show]
 
   def index
     @posts = Post.all
@@ -34,11 +35,20 @@ class Admin::PostsController < ApplicationController
   end
 
   private
-    def set_post
-      @post = Post.find(params[:id])
-    end
 
-    def post_params
-      params.require(:post).permit(:title, :body, :photo)
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def find_post_photos
+    @post_photos = @post.photos
+  end
+
+  def post_params
+    attributes = [
+      :title, :body,
+      photos_attributes: [:post_id, :photo, :_destroy, :id]
+    ]
+    params.require(:post).permit(attributes)
+  end
 end

@@ -18,6 +18,7 @@ gem 'faker', github: 'Makapoxa/faker', ref: '2c52d5'
 gem 'factory_girl_rails'
 gem 'russian'
 gem 'bootstrap-kaminari-views'
+gem 'jquery-fileupload-rails'
 
 # gem 'aws-sdk' #
 
