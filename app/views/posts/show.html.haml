@@ -6,7 +6,7 @@
       - photos.each do |photo|
         .col-sm-6.col-md-4
           .thumbnail
-            = image_tag photo.photo_url(:thumb)
+            = link_to image_tag(photo.photo_url(:thumb).to_s), post_path(photo_id: photo.id), id: 'post_image', remote: true
 
 %h3 Комментарии
 - @comments.each do |comment|
@@ -22,3 +22,5 @@
   = f.text_area :body, class: 'form-control', placeholder: 'Комментарий'
   %br
   = f.submit 'Отправить', class: 'btn btn-success'
+
+= render 'modal'

@@ -19,3 +19,41 @@
  body {
   padding-top: 60px;
  }
+
+$light-gray: #4f4848;
+$white: #fefefe;
+
+/* button closure modal window */
+.modal .close {
+  color: $light-gray;
+  cursor: pointer;
+  font-size: 25px;
+  position: absolute;
+  right: 5px;
+  text-decoration: none;
+  top: 0;
+}
+
+/* adaptive image in a modal box */
+.modal-image {
+  height: 870px;
+  width: 860px;
+}
+
+.modal-content {
+  height: 900px;
+  width: 893px;
+  border-radius: 5px;
+}
+
+.modal-dialog {
+  background: $white;
+  width: 750px;
+  border-radius: 5px;
+}
+
+.modal-body {
+  padding: 19px;
+  height: 776px;
+  width: 666px;
+}

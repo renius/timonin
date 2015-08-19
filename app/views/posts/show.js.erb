@@ -1,0 +1,7 @@
+<% photo = @post.photos.find(params[:photo_id]) %>
+$("<%= escape_javascript(image_tag(photo.photo_url.to_s, class: 'modal-image')) %>").appendTo('.modal-body');
+$('#modal_post').modal('show');
+
+$('body').on('hidden.bs.modal', '.modal', function () {
+  $('.modal-image').remove();
+});
