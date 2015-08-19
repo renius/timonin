@@ -62,7 +62,7 @@ describe Admin::PostsController do
 
       it 'redirects to the created admin_post' do
         post :create, post: valid_attributes
-        expect(response).to redirect_to admin_posts_path
+        expect(response).to redirect_to admin_post_path(assigns(:post))
       end
     end
   end

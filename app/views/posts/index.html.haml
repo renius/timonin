@@ -1,5 +1,12 @@
+%h1 Галлерея
 - @posts.each do |post|
   %h2= link_to(post.title, post)
-  = post.body
+  %p= "Описание: #{post.body}"
+  - post.photos.each_slice(3) do |photos|
+    .row
+      - photos.each do |photo|
+        .col-sm-6.col-md-4
+          .thumbnail
+            = image_tag photo.photo_url(:thumb)
 %br
 = paginate @posts, theme: 'twitter-bootstrap-3'

@@ -5,5 +5,7 @@
         .thumbnail
           = image_tag photo.photo_url(:thumb)
           .caption
-            = link_to 'Delete', admin_post_path(@post.id,
-              post: { photos_attributes: { id: photo.id, _destroy: true } }), method: :put
+            = link_to 'Удалить изображение', admin_post_path(@post.id,
+              post: { photos_attributes: { id: photo.id, _destroy: true } }),
+              method: :put,
+              class: 'btn btn-xs btn-danger'

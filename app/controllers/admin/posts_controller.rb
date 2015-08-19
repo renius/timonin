@@ -4,10 +4,11 @@ class Admin::PostsController < ApplicationController
   before_action :find_post_photos, only: [:edit, :show]
 
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).per(3)
   end
 
   def show
+    @comments = @post.comments.page(params[:comments_page]).per(6)
   end
 
   def new
@@ -19,19 +20,18 @@ class Admin::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    if @post.save
-      redirect_to admin_posts_path
-    end
+    @post.save
+    respond_with(:admin, @post)
   end
 
   def update
     @post.update(post_params)
-    redirect_to admin_post_path
+    respond_with(:admin, @post)
   end
 
   def destroy
     @post.destroy
-    redirect_to admin_posts_path
+    respond_with(:admin, @post)
   end
 
   private

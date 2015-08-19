@@ -454,6 +454,7 @@ DEPENDENCIES
   pry-stack_explorer
   rails (= 4.2.1)
   rails_12factor
+  responders
   rmagick
   rspec-rails
   russian
