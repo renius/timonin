@@ -19,6 +19,7 @@ gem 'factory_girl_rails'
 gem 'russian'
 gem 'bootstrap-kaminari-views'
 gem 'jquery-fileupload-rails'
+gem 'responders'
 
 # gem 'aws-sdk' #
 

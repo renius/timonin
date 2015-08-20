@@ -1,15 +1,19 @@
 %h2= @post.title
-= @post.body
+%p= "Text: #{@post.body}"
 - if @post_photos
-  - @post_photos.each do |photos|
-    = image_tag photos.photo_url(:thumb)
+  - @post_photos.each_slice(3) do |photos|
+    .row
+      - photos.each do |photo|
+        .col-sm-6.col-md-4
+          .thumbnail
+            = link_to image_tag(photo.photo_url(:thumb).to_s), post_path(photo_id: photo.id), id: 'post_image', remote: true
 
 %h3 Комментарии
-= paginate @comments, param_name: :comments_page
 - @comments.each do |comment|
   %p= "Автор: #{comment.name}"
   %p= "Текст: #{comment.body}"
   %hr
+= paginate @comments, theme: 'twitter-bootstrap-3', param_name: :comments_page
 
 %h3 Оставить комментарий
 = form_for([@post, @post.comments.build], html: { class: 'form-horizontal' }) do |f|
@@ -18,3 +22,5 @@
   = f.text_area :body, class: 'form-control', placeholder: 'Комментарий'
   %br
   = f.submit 'Отправить', class: 'btn btn-success'
+
+= render 'modal'
